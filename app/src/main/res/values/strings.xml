@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ChuckNorris</string>
+    <string name="intro_text">Clicca il bottone per scoprire una curiosità sul grande Chuck Norris</string>
+    <string name="error_text">Errore</string>
+    <string name="retry_text">Riprova</string>
+
+</resources>
