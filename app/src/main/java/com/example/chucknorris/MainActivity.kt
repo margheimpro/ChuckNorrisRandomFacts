@@ -16,10 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
     private lateinit var factApi: ChuckApiFacts
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         factApi = retrofit.create(ChuckApiFacts::class.java)
-
 
         binding.buttonFact.setOnClickListener {
             generateFact()
@@ -60,5 +56,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }
