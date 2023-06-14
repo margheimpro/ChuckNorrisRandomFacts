@@ -7,32 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_marginStart="24dp"
-    android:layout_marginEnd="24dp"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/chuck_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/chuck"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/text_fact"
+    <fragment
+        android:id="@id/main_view"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:fontFamily="serif"
-        android:gravity="center"
-        android:text="@string/intro_text"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/button_fact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clicca"
-        android:fontFamily="serif" />
+        android:layout_height="match_parent"
+        android:name="com.example.chucknorris.Ui.FactsFragment"
+        tools:layout="@layout/fragment_facts" />
 
 </LinearLayout>

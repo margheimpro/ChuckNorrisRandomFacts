@@ -1,3 +1,3 @@
 package com.example.chucknorris.repository
 
-data class Facts(val value: String?)
+data class Facts(val value: String)
