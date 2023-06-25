@@ -13,7 +13,7 @@
         android:id="@id/main_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.chucknorris.Ui.FactsFragment"
+        android:name="com.example.chucknorris.ui.FactsFragment"
         tools:layout="@layout/fragment_facts" />
 
 </LinearLayout>

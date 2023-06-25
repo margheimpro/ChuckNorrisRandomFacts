@@ -1,4 +1,4 @@
-package com.example.chucknorris.Ui
+package com.example.chucknorris.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.chucknorris.databinding.FragmentFactsBinding
-import com.example.chucknorris.repository.Facts
 
 class FactsFragment : Fragment() {
 
@@ -32,13 +31,10 @@ class FactsFragment : Fragment() {
             viewModel.generateFact()
         }
 
-        viewModel.factsLiveData.observe(viewLifecycleOwner) {
-            getFacts(it)
+        viewModel.factLiveData.observe(viewLifecycleOwner) {
+            binding.textFact.text = it.value
+            binding.chuckPhoto.visibility = View.VISIBLE
         }
    }
 
-    private fun getFacts(facts: Facts){
-        binding.textFact.text = facts.value
-        binding.chuckPhoto.visibility = View.VISIBLE
-    }
 }
