@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.chucknorris.databinding.FragmentFactsBinding
+import kotlinx.coroutines.launch
 
 class FactsFragment : Fragment() {
 
@@ -31,10 +33,11 @@ class FactsFragment : Fragment() {
             viewModel.generateFact()
         }
 
-        viewModel.factLiveData.observe(viewLifecycleOwner) {
-            binding.textFact.text = it.value
-            binding.chuckPhoto.visibility = View.VISIBLE
+        lifecycleScope.launch {
+            viewModel.randomFactResult.collect {
+                    binding.textFact.text = it.value
+                    binding.chuckPhoto.visibility = View.VISIBLE
+            }
         }
-   }
-
+    }
 }
