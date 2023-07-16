@@ -3,7 +3,7 @@ package com.example.chucknorris.data
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class FactsRepository {
+class FactsRepository() {
 
     private val factApi: FactsAPI
 

@@ -1,11 +1,14 @@
 package com.example.chucknorris.ui
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
+import com.example.chucknorris.data.UserPreferences
 import com.example.chucknorris.databinding.FragmentFactsBinding
 
 class FactsFragment : Fragment() {
@@ -20,6 +23,7 @@ class FactsFragment : Fragment() {
 
         binding = FragmentFactsBinding.inflate(inflater)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,10 +35,19 @@ class FactsFragment : Fragment() {
             viewModel.generateFact()
         }
 
-        viewModel.factLiveData.observe(viewLifecycleOwner) {
+        viewModel.randomFactLiveData.observe(viewLifecycleOwner) {
             binding.textFact.text = it.value
             binding.chuckPhoto.visibility = View.VISIBLE
         }
-   }
 
+        val sharedPreferences = UserPreferences(requireActivity().getSharedPreferences("USER_PREFS", Context.MODE_PRIVATE))
+
+        val name = viewModel.getUserName(sharedPreferences)
+
+        binding.editText.setText(name)
+
+        binding.editText.addTextChangedListener {
+            viewModel.saveUserName(it.toString(),sharedPreferences)
+        }
+    }
 }

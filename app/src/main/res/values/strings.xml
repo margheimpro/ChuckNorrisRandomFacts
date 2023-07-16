@@ -4,6 +4,8 @@
     <string name="error_text">Error</string>
     <string name="retry_text">Retry</string>
     <string name="button_text">Click</string>
+    <string name="write_your_name">write your name</string>
+    <string name="hello">Hello </string>
 
 
 </resources>
